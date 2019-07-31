@@ -25,17 +25,21 @@ function cropTheDocument(argDoc,argX,argY,argWidth,argHeight){
 
 //绘制文字
 function putTheText(argDoc,argString){
+    var varTextSize = 36 ;
     var varTextLayer = argDoc.artLayers.add();
     varTextLayer.kind = LayerKind.TEXT;
     // varTextLayer.textItem.font = "MicrosoftYaHeiUI-Blod";
     varTextLayer.textItem.contents = argString ;
-    varTextLayer.textItem.size = 36 ;
+    varTextLayer.textItem.size = varTextSize ;
     varTextLayer.textItem.kind = TextType.PARAGRAPHTEXT        ;
-    varTextLayer.textItem.width = argDoc.width                 ;
-    varTextLayer.textItem.height = argDoc.height               ;
-    varTextLayer.textItem.justification = Justification.CENTER ;//Justification.LEFTJUSTIFIED; 
+    //varTextLayer.textItem.width = argDoc.width                 ;
+    //varTextLayer.textItem.height = argDoc.height               ;
+    varTextLayer.textItem.justification = Justification.LEFT ;//Justification.LEFTJUSTIFIED; 
     //varTextLayer.textItem.rightIndent = 2 ;
-    varTextLayer.textItem.position = new Array( 0 , 36 + 8 );
+    //alert( argDoc.width  )
+    //alert( varTextLayer.textItem.width )
+    var varTextXPos = (argDoc.width - varTextSize ) - (varTextLayer.bounds[2] - varTextLayer.bounds[0]);
+    varTextLayer.textItem.position = new Array(varTextXPos , varTextSize + 8 );
     // http://jongware.mit.edu/pscs5js_html/psjscs5/pc_TextItem.html
 }
 
