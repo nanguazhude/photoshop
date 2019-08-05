@@ -15,14 +15,13 @@ function putTheText(argDoc,argString){
     var varTextSize = 36 ;
     var varTextLayer = argDoc.artLayers.add();
     varTextLayer.kind = LayerKind.TEXT;
-    // varTextLayer.textItem.font = "MicrosoftYaHeiUI-Blod";
+    varTextLayer.textItem.font = "黑体";
     varTextLayer.textItem.contents = argString                 ;
     varTextLayer.textItem.size = varTextSize                   ;
     varTextLayer.textItem.kind = TextType.PARAGRAPHTEXT        ;
     varTextLayer.textItem.justification = Justification.LEFT   ;
     var varTextXPos = (argDoc.width - varTextSize ) - (varTextLayer.bounds[2] - varTextLayer.bounds[0]);
     varTextLayer.textItem.position = new Array(varTextXPos , varTextSize + 8 );
-    // http://jongware.mit.edu/pscs5js_html/psjscs5/pc_TextItem.html
 }
 
 //强制将单位改为像素
@@ -63,6 +62,22 @@ function doTheApp(varDoc){
         app.preferences.rulerUnits = varR1;
     }
 
+}
+
+{//设置背景色为白色
+    var mySolidColor = new SolidColor();
+    mySolidColor.rgb.red= 255;
+    mySolidColor.rgb.green= 255;
+    mySolidColor.rgb.blue= 255;
+    app.backgroundColor = mySolidColor ;
+}
+
+{//设置背景色为黑色
+    var mySolidColor = new SolidColor();
+    mySolidColor.rgb.red= 0;
+    mySolidColor.rgb.green= 0;
+    mySolidColor.rgb.blue= 0;
+    app.foregroundColor = mySolidColor ;
 }
 
 while( app.documents.length > 0  ) {
