@@ -44,6 +44,12 @@ function doApp() {
             saveFileByName(varDoc, varDoc.fullName);
         }
 
+        {
+            var varLastObject = new ActionDescriptor() ;
+            varLastObject.putPath(1 , varDoc.fullName );
+            app.putCustomOptions("savedDataZ",varLastObject,true);
+        }
+
         //关闭文档
         varDoc.close(SaveOptions.DONOTSAVECHANGES);
         varDoc = null ;
@@ -93,6 +99,7 @@ function doApp() {
         }
 
     } catch (e) {
+        alert(e);
         return;
     }
 
