@@ -97,16 +97,16 @@ function doApp() {
 
 doApp()
 
-
-//https://gitee.com/code_yu/photoshop-javascript
-
 //设置快捷键：
 // C:/Program Files/Adobe/Adobe Photoshop CC 2018/Presets/Scripts
 // https://forums.adobe.com/thread/1966460
+
+//https://gitee.com/code_yu/photoshop-javascript
 
 // https://forums.adobe.com/thread/1246514
 
 //C:\Program Files\Adobe\Adobe Utilities\ExtendScript Toolkit CC\SDK
 
+// File and Folder Help :
 // https://estk.aenhancers.com/3%20-%20File%20System%20Access/folder-object.html
 // https://estk.aenhancers.com/3%20-%20File%20System%20Access/using-file-and-folder-objects.html
