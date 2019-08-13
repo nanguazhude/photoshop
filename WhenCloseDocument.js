@@ -24,25 +24,39 @@ function saveFileByName(argDoc,argFileName){
     argDoc.saveAs(jpgFile, jpgSaveOptions, true,Extension.LOWERCASE) ;
 }
 
-var varDoc = app.activeDocument ;
+function doApp(){
+    try{
 
-if(varDoc){
-}else{
+    var varDoc = app.activeDocument ;
+
+    if(varDoc){
+    }else{
+        return;
+    }
+    
+    //保存文档
+    if(varDoc.saved){
+    }else{
+        saveFileByName(varDoc,varDoc.fullName);
+    }
+    
+    //下一个文件名
+    var varNextFileName = createNextFileName( parseInt(varDoc.name,10) );
+    
+    
+
+    alert( varNextFileName ); 
+    
+    //关闭文档
+    varDoc.close(SaveOptions.DONOTSAVECHANGES);
+
+}catch(e){
     return;
 }
 
-//保存文档
-if(varDoc.saved){
-}else{
-    saveFileByName(varDoc,varDoc.fullName);
 }
 
-var varNextFileName = createNextFileName( parseInt(varDoc.name,10) );
-
-alert( varNextFileName ); 
-
-//关闭文档
-varDoc.close(SaveOptions.DONOTSAVECHANGES);
+doApp()
 
 
 //https://gitee.com/code_yu/photoshop-javascript
