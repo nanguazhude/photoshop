@@ -1,7 +1,7 @@
 
 function createNextFileName(arg) {
     var varString = null;
-    arg += 1;
+    arg += 1; // 改成 -=1 就是寻找上一张图片 ...  
     if (arg < 10) {
         varString = "000" + arg;
     } else if (arg < 100) {
