@@ -34,19 +34,25 @@ function doApp() {
             return;
         }
 
+        var varThisName  = varDoc.name ;
+        var varRootPath  = varDoc.path ;
+        var isOpenedNext = false;
+
         //保存文档
         if (varDoc.saved) {
         } else {
             saveFileByName(varDoc, varDoc.fullName);
         }
 
-        //下一个文件名
-        var varNextFileName = createNextFileName(parseInt(varDoc.name, 10));
+        //关闭文档
+        varDoc.close(SaveOptions.DONOTSAVECHANGES);
+        varDoc = null ;
 
-        var isOpenedNext = false;
+        //下一个文件名
+        var varNextFileName = createNextFileName(parseInt(varThisName, 10));
 
         {   //寻找在当前文件夹下有无此文件
-            var varNextFileFullName = varDoc.path + "/" + varNextFileName;
+            var varNextFileFullName = varRootPath + "/" + varNextFileName;
             var varFile = new File(varNextFileFullName);
             if (varFile && varFile.open("r")) {
                 varFile.close();
@@ -56,7 +62,7 @@ function doApp() {
         }
 
         if (!isOpenedNext) { 
-            var varThisFolder = new Folder(varDoc.path).parent;
+            var varThisFolder = new Folder(varRootPath).parent;
             var varOpenFiles = null;
 
             if (varThisFolder) {//寻找在父文件夹下有无此文件
@@ -80,9 +86,6 @@ function doApp() {
                 }/*else*/
             }/*if*/
         }
-
-        //关闭文档
-        varDoc.close(SaveOptions.DONOTSAVECHANGES);
 
         //已经完成此序列提示
         if(!isOpenedNext){
