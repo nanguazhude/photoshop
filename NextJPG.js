@@ -76,6 +76,7 @@ function doApp() {
                             }
                         }
                     }/*for*/
+                    alert("can not find : " + varNextFileName + " finished !!!!");
                 }/*else*/
             }/*if*/
         }
