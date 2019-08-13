@@ -44,6 +44,7 @@ function doApp() {
         var varNextFileName = createNextFileName(parseInt(varDoc.name, 10));
 
         var isOpenedNext = false;
+        
         {   //寻找在当前文件夹下有无此文件
             var varNextFileFullName = varDoc.path + "/" + varNextFileName;
             var varFile = new File(varNextFileFullName);
@@ -76,15 +77,16 @@ function doApp() {
                             }
                         }
                     }/*for*/
-                    if(!isOpenedNext){
-                        alert("can not find : " + varNextFileName + " finished !!!!");
-                    }
                 }/*else*/
             }/*if*/
         }
 
         //关闭文档
         varDoc.close(SaveOptions.DONOTSAVECHANGES);
+
+        if(!isOpenedNext){
+            alert("can not find : " + varNextFileName + " finished !!!!");
+        }
 
     } catch (e) {
         return;
