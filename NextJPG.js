@@ -16,7 +16,7 @@ function createNextFileName(arg) {
 
 function saveFileByName(argDoc, argFileName) {
     var jpgFile = new File(argFileName);
-    jpgFile.copy( "C:/Users/ggg/Desktop/h/recent.jpg" );
+    jpgFile.copy( "C:/Users/ggg/Desktop/h/z/" + jpgFile.name );
     var jpgSaveOptions = new JPEGSaveOptions();
     jpgSaveOptions.embedColorProfile = true;
     jpgSaveOptions.formatOptions = FormatOptions.STANDARDBASELINE;
