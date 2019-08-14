@@ -16,7 +16,6 @@ function createNextFileName(arg) {
 
 function saveFileByName(argDoc, argFileName) {
     var jpgFile = new File(argFileName);
-    jpgFile.copy( "C:/Users/ggg/Desktop/h/z/" + jpgFile.name );
     var jpgSaveOptions = new JPEGSaveOptions();
     jpgSaveOptions.embedColorProfile = true;
     jpgSaveOptions.formatOptions = FormatOptions.STANDARDBASELINE;
@@ -37,18 +36,23 @@ function doApp() {
 
         var varThisName  = varDoc.name ;
         var varRootPath  = varDoc.path ;
+
         var isOpenedNext = false;
+
+        {/* 进行备份 ... */
+            var jpgFile       = varDoc.fullName ;
+            var varBackFile   = "C:/Users/ggg/Desktop/h/z/" + jpgFile.name ;
+            var varLastObject = new ActionDescriptor() ;
+            varLastObject.putPath(1 , jpgFile );
+            varLastObject.putPath(2 , varBackFile );
+            app.putCustomOptions("savedDataZ",varLastObject,true);
+            jpgFile.copy( varBackFile );
+        }
 
         //保存文档
         if (varDoc.saved) {
         } else {
             saveFileByName(varDoc, varDoc.fullName);
-        }
-
-        {
-            //var varLastObject = new ActionDescriptor() ;
-            //varLastObject.putPath(1 , varDoc.fullName );
-            //app.putCustomOptions("savedDataZ",varLastObject,true);
         }
 
         //关闭文档
