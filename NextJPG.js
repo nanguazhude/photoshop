@@ -39,19 +39,18 @@ function doApp() {
 
         var isOpenedNext = false;
 
-       {/* 进行备份 ... */
-            var jpgFile       = varDoc.fullName ;
-            var varBackFile   = new File( Folder.temp + "/" + jpgFile.name ) ;
-            var varLastObject = new ActionDescriptor() ;
-            varLastObject.putPath(1 , jpgFile );
-            varLastObject.putPath(2 , varBackFile );
-            app.putCustomOptions("savedDataZ",varLastObject,true);
-            jpgFile.copy( varBackFile );
-        }
-
         //保存文档
         if (varDoc.saved) {
         } else {
+            {/* 进行备份 ... */
+                var jpgFile       = varDoc.fullName ;
+                var varBackFile   = new File( Folder.temp + "/" + jpgFile.name ) ;
+                var varLastObject = new ActionDescriptor() ;
+                varLastObject.putPath(1 , jpgFile );
+                varLastObject.putPath(2 , varBackFile );
+                app.putCustomOptions("savedDataZ",varLastObject,true);
+                jpgFile.copy( varBackFile );
+            }
             saveFileByName(varDoc, varDoc.fullName);
         }
 
