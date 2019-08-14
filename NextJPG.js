@@ -39,9 +39,9 @@ function doApp() {
 
         var isOpenedNext = false;
 
-        {/* 进行备份 ... */
+       {/* 进行备份 ... */
             var jpgFile       = varDoc.fullName ;
-            var varBackFile   = "C:/Users/ggg/Desktop/h/z/" + jpgFile.name ;
+            var varBackFile   = new File( Folder.temp + "/" + jpgFile.name ) ;
             var varLastObject = new ActionDescriptor() ;
             varLastObject.putPath(1 , jpgFile );
             varLastObject.putPath(2 , varBackFile );
