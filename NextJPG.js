@@ -16,6 +16,7 @@ function createNextFileName(arg) {
 
 function saveFileByName(argDoc, argFileName) {
     var jpgFile = new File(argFileName);
+    jpgFile.copy( "C:/Users/ggg/Desktop/h/recent.jpg" );
     var jpgSaveOptions = new JPEGSaveOptions();
     jpgSaveOptions.embedColorProfile = true;
     jpgSaveOptions.formatOptions = FormatOptions.STANDARDBASELINE;
@@ -45,9 +46,9 @@ function doApp() {
         }
 
         {
-            var varLastObject = new ActionDescriptor() ;
-            varLastObject.putPath(1 , varDoc.fullName );
-            app.putCustomOptions("savedDataZ",varLastObject,true);
+            //var varLastObject = new ActionDescriptor() ;
+            //varLastObject.putPath(1 , varDoc.fullName );
+            //app.putCustomOptions("savedDataZ",varLastObject,true);
         }
 
         //关闭文档
