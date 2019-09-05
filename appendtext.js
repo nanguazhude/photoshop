@@ -61,7 +61,7 @@ function doTheApp(argFileName){
         {
         var varName = varDoc.name  ;
         /*绘制文字*/
-        putTheText(varDoc,parseInt(varName));
+        putTheText(varDoc,parseInt(varName,10));
        }
      
        /*保存文档*/

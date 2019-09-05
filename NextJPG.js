@@ -21,6 +21,8 @@ function saveFileByName(argDoc, argFileName) {
     jpgSaveOptions.formatOptions = FormatOptions.STANDARDBASELINE;
     jpgSaveOptions.matte = MatteType.NONE;
     jpgSaveOptions.quality = 8;
+    argDoc.changeMode( ChangeMode.RGB )              ;/* */
+    argDoc.bitsPerChannel = BitsPerChannelType.EIGHT ;/* */
     argDoc.saveAs(jpgFile, jpgSaveOptions, true, Extension.LOWERCASE);
 }
 
